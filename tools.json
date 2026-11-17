@@ -1,0 +1,35 @@
+[
+  {
+    "name": "in_rbi_penalties_list",
+    "description": "List Reserve Bank of India enforcement press releases about firms: monetary penalties imposed on banks, cooperative banks, non-bank finance companies, payment-system operators and credit-information companies, newest first, with release date, the firm named in the title and a prid for in_rbi_penalties_read. Reads the bank's enforcement list as it stands today, which covers roughly the last three months; older releases are in the bank's month-by-month archive and are not read here. `name` keeps rows whose title contains it. Rows whose title names no firm are counted in `non_firm_dropped`. No row for a name is not a clearance: the window is recent and titles only. Example: name=\"Hero Fincorp\".",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Optional firm name to look for in release titles, at least 3 characters (Limited, Ltd, Private and The are ignored)."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Maximum rows to return (1-100, default 50)."
+        }
+      }
+    }
+  },
+  {
+    "name": "in_rbi_penalties_read",
+    "description": "Read one Reserve Bank of India enforcement press release by the prid from in_rbi_penalties_list: the order date, the penalty amount, the firm penalised, the provisions of Indian law it was imposed under, the inspection reference period and the charges the bank sustained, as plain text, plus the bank's press-release number. The signing officer's name line is removed and counted. A prid that is not an enforcement release in the bank's enforcement list returns found:false with a reason. Example: prid=\"63973\".",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "prid": {
+          "type": "string",
+          "description": "Release id from in_rbi_penalties_list, digits only."
+        }
+      },
+      "required": [
+        "prid"
+      ]
+    }
+  }
+]

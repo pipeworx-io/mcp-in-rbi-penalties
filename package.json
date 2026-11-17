@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-in-rbi-penalties",
+  "version": "0.1.0",
+  "description": "in-rbi-penalties -- the Reserve Bank of India's enforcement press releases: monetary penalties on banks, cooperative banks, non-bank lenders, payment companies and credit-information companies, plus licence cancellations and restrictions the bank announces in the same list.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-in-rbi-penalties": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "in-rbi-penalties"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-in-rbi-penalties.git"
+  },
+  "mcpName": "io.github.pipeworx-io/in-rbi-penalties",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "in-rbi-penalties",
+    "gatewaySlug": "in-rbi-penalties",
+    "sourceHash": "v1-351bc532162888a027908b657938018e113098719cd3905f2ec96e2d29ccb616",
+    "sourceCommit": "6e7ae693219a515a7ee6dd88d02390ab290fbad3"
+  }
+}
